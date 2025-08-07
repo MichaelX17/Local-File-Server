@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Server</title>
+
+    <!-- Favicon moderno (recomendado) -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Favicon legacy (para navegadores antiguos) -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Para Apple devices -->
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <button id="downloadAllBtn" class="btn btn-primary">Download All</button>
+        <button id="selectBtn" class="btn">Select</button>
+        <button id="downloadSelectedBtn" class="btn btn-primary" disabled>Download Selected</button>
+        <button id="refreshBtn" class="btn">Refresh</button>
+        <input type="file" id="fileInput" hidden>
+        <button id="uploadBtn" class="btn">Upload</button>
+
+    </header>
+
+    <div class="path-bar" id="pathBar">/To_send_files</div>
+
+    <div class="file-grid" id="fileGrid">
+        <!-- Los archivos se cargarán aquí con JavaScript -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

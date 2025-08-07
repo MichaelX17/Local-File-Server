@@ -1,0 +1,249 @@
+:root {
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text: #e0e0e0;
+    --accent: #bb86fc;
+    --accent-hover: #d0a4ff;
+    --danger: #cf6679;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 15px;
+}
+
+header {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+    height: 40px;
+    width: 150px;
+}
+
+.btn:hover {
+    background-color: #444;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #000;
+    height: 40px;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.file-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.file-card:hover {
+    transform: translateY(-5px);
+}
+
+.file-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+    color: var(--accent);
+}
+
+.file-name {
+    font-size: 13px;
+    word-break: break-all;
+    margin-bottom: 10px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.file-actions {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.file-actions .btn {
+    padding: 6px 8px;
+    font-size: 12px;
+}
+
+.checkbox-container {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: none;
+}
+
+.folder {
+    border: 2px solid var(--accent);
+}
+
+.path-bar {
+    background-color: var(--card-bg);
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-family: monospace;
+    word-break: break-all;
+    font-size: 14px;
+}
+
+/* Nuevos estilos para selección */
+.selection-mode .file-actions {
+    display: none !important;
+}
+
+.selection-mode .file-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-card.selected {
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+}
+
+.selection-mode .file-card.folder {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+
+/* ----------------------------- */
+/* ----------------------------- */
+/* Media Queries para Responsive */
+/* ----------------------------- */
+/* ----------------------------- */
+
+
+
+@media (max-width: 768px) {
+    .file-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .file-icon {
+        font-size: 36px;
+    }
+
+    .file-name {
+        font-size: 12px;
+        height: 32px;
+    }
+
+    .file-actions .btn {
+        padding: 5px 6px;
+        font-size: 11px;
+    }
+
+    header {
+        padding: 10px;
+        gap: 6px;
+    }
+
+    .btn {
+        padding: 6px 8px;
+        font-size: 12px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .file-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
+    }
+
+    .file-card {
+        padding: 8px;
+    }
+
+    .file-icon {
+        font-size: 32px;
+        margin-bottom: 6px;
+    }
+
+    .file-name {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+
+    .file-actions {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .file-actions .btn {
+        width: 100%;
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .btn {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+    }
+
+    .path-bar {
+        font-size: 12px;
+        padding: 6px 8px;
+        text-align: center;
+    }
+}
