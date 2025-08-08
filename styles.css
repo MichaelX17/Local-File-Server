@@ -153,6 +153,20 @@ header {
     opacity: 0.6;
 }
 
+.btn-path {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-path:hover {
+    text-decoration: underline;
+}
+
 
 
 /* ----------------------------- */
@@ -231,12 +245,13 @@ header {
     }
 
     header {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
         gap: 5px;
     }
 
     .btn {
-        width: 100%;
+        flex: 1 1 calc(50% - 5px);
         height: 40px;
         padding: 8px;
     }

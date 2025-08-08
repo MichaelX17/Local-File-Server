@@ -23,13 +23,17 @@
         <button id="downloadAllBtn" class="btn btn-primary">Download All</button>
         <button id="selectBtn" class="btn">Select</button>
         <button id="downloadSelectedBtn" class="btn btn-primary" disabled>Download Selected</button>
+        <button id="backBtn" class="btn">Back</button>
         <button id="refreshBtn" class="btn">Refresh</button>
         <input type="file" id="fileInput" hidden>
         <button id="uploadBtn" class="btn">Upload</button>
 
     </header>
 
-    <div class="path-bar" id="pathBar">/To_send_files</div>
+    <div class="path-bar" id="pathBar">
+        <button id="switchFolderBtn" class="btn-path">/To_Send_Files/</button>
+    </div>
+
 
     <div class="file-grid" id="fileGrid">
         <!-- Los archivos se cargarán aquí con JavaScript -->

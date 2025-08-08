@@ -1,0 +1,18 @@
+# Ignorar todo por defecto
+*
+
+# Excepto estos archivos/carpetas
+!.gitignore
+!index.html
+!styles.css
+!script.js
+!upload.php
+!.htaccess
+!To_send_files/
+!Recieved_files/
+!images/
+
+# Pero ignorar el contenido dentro de estas carpetas
+To_send_files/*
+Recieved_files/*
+images/*

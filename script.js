@@ -1,5 +1,7 @@
+
 // Configuración
-const BASE_DIR = 'To_send_files/';
+let BASE_DIR = 'To_Send_Files/';
+
 let selectionMode = false;
 let selectedFiles = new Set();
 let currentPath = '';
@@ -11,9 +13,6 @@ const downloadSelectedBtn = document.getElementById('downloadSelectedBtn');
 const downloadAllBtn = document.getElementById('downloadAllBtn');
 const refreshBtn = document.getElementById('refreshBtn');
 const pathBar = document.getElementById('pathBar');
-
-const fileInput = document.getElementById('fileInput');
-const uploadBtn = document.getElementById('uploadBtn');
 
 // Función para construir rutas
 function buildFullPath(relativePath) {
@@ -96,7 +95,8 @@ function renderFiles(files) {
     });
 
     // Actualizar barra de ruta
-    pathBar.textContent = `/${buildFullPath(currentPath)}`;
+    switchFolderBtn.textContent = `/${BASE_DIR}`;
+
 
     // Agregar event listeners para acciones
     document.querySelectorAll('.download-btn').forEach(btn => {
@@ -203,6 +203,8 @@ function downloadAllFiles() {
     });
 }
 
+const fileInput = document.getElementById('fileInput');
+const uploadBtn = document.getElementById('uploadBtn');
 
 // Abrir diálogo al hacer clic
 uploadBtn.addEventListener('click', () => fileInput.click());
@@ -236,6 +238,7 @@ fileInput.addEventListener('change', async () => {
     }
 });
 
+
 // Event Listeners
 selectBtn.addEventListener('click', toggleSelectionMode);
 downloadSelectedBtn.addEventListener('click', downloadSelected);
@@ -251,6 +254,33 @@ fileGrid.addEventListener('click', function (event) {
         handleCardSelection(card);
     }
 });
+
+const switchFolderBtn = document.getElementById('switchFolderBtn');
+
+switchFolderBtn.addEventListener('click', () => {
+    // Alternar entre las dos carpetas raíz
+    BASE_DIR = (BASE_DIR === 'To_Send_Files/') ? 'Recieved_Files/' : 'To_Send_Files/';
+
+    // Reiniciar la ruta interna
+    currentPath = '';
+
+    // Recargar lista de archivos
+    fetchFiles('').then(renderFiles);
+});
+
+
+const backBtn = document.getElementById('backBtn');
+
+backBtn.addEventListener('click', () => {
+    if (currentPath) {
+        let parts = currentPath.split('/').filter(Boolean);
+        parts.pop(); // Quita la última carpeta
+        const newPath = parts.join('/');
+        fetchFiles(newPath).then(renderFiles);
+    }
+});
+
+
 
 // Inicializar
 fetchFiles().then(renderFiles);
